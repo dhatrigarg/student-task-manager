@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Student Productivity Agent</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- LANDING PAGE -->
+<section class="hero" id="home">
+  <h1>AI Student Productivity Agent</h1>
+  <p>An AI assistant that helps students decide what to do next</p>
+  <button class="btn" onclick="openTasks()">Get Started</button>
+  <div class="features">Simple • Organized • Student-friendly</div>
+</section>
+
+<!-- TEAM -->
+<section class="team">
+  <h2>Our Team</h2>
+  <div class="member"><b>Aakriti Gupta</b></div>
+  <div class="member"><b>Divyanshi Gupta</b></div>
+  <div class="member"><b>Dhatri Garg</b></div>
+</section>
+
+<!-- TASK PAGE -->
+<section class="task-page" id="tasks">
+  <h2>Your Tasks</h2>
+
+  <div class="ai-box" id="aiResult">
+    🤖 Add tasks to get AI recommendation
+  </div>
+
+  <div class="task-input">
+    <div class="input-group">
+      <label>Task</label>
+      <input type="text" id="taskText" placeholder="Enter your task">
+    </div>
+
+    <div class="input-group">
+      <label>Type</label>
+      <select id="taskType">
+        <option value="study">Study-related</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label>Deadline</label>
+      <input type="date" id="taskDeadline">
+    </div>
+
+    <div class="input-group">
+      <label>Effort</label>
+      <select id="taskEffort">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+
+    <div class="input-group" style="justify-content:flex-end;">
+      <label>&nbsp;</label>
+      <button class="btn" onclick="addTask()">Add Task</button>
+    </div>
+  </div>
+
+  <div class="task-list" id="taskList"></div>
+</section>
+
+<section class="hero" id="home">
+  <h1>AI Student Productivity Agent</h1>
+  <p>An AI assistant that helps students decide what to do next</p>
+
+  <button class="btn" onclick="openTasks()">Get Started</button>
+
+  <div class="features">
+    Simple • Organized • Student-friendly
+  </div>
+
+  <!-- ABOUT US LINK -->
+  <a href="about.html" class="about-link">About Us</a>
+</section>
+
+
+<!-- JS (order matters) -->
+<script src="js/data.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
