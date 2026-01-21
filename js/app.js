@@ -1,9 +1,12 @@
 function openTasks() {
-  document.getElementById("home").style.display = "none";
-  document.querySelector(".team").style.display = "none";
-  document.getElementById("tasks").style.display = "block";
-  renderTasks();
-  showRecommendation();
+  const home = document.getElementById("home");
+  const tasks = document.getElementById("tasks");
+
+  if (home) home.style.display = "none";
+  if (tasks) tasks.style.display = "block";
+
+  if (typeof renderTasks === "function") renderTasks();
+  if (typeof showRecommendation === "function") showRecommendation();
 }
 
 function addTask() {
@@ -56,4 +59,30 @@ function renderTasks() {
 
     taskList.appendChild(div);
   });
+}
+
+// Dynamic task heading
+const motivationalLines = [
+  "Stay on track, every day.",
+  "Decide less. Do more.",
+  "Stay ahead of deadlines.",
+  "Focus on what matters."
+];
+
+const dynamicHeading = document.getElementById("dynamicHeading");
+
+function changeHeading() {
+  const randomIndex = Math.floor(Math.random() * motivationalLines.length);
+  dynamicHeading.textContent = motivationalLines[randomIndex];
+}
+
+// Change heading every 5 seconds
+setInterval(changeHeading, 5000);
+
+// Initialize first random line immediately
+changeHeading();
+
+function goHome() {
+  document.getElementById("tasks").style.display = "none";
+  document.getElementById("home").style.display = "flex"; // Show hero section
 }

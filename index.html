@@ -3,36 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Student Productivity Agent</title>
+  <title>Smart Task Planner</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-<!-- LANDING PAGE -->
+<!-- HOME -->
 <section class="hero" id="home">
-  <h1>AI Student Productivity Agent</h1>
-  <p>An AI assistant that helps students decide what to do next</p>
-  <button class="btn" onclick="openTasks()">Get Started</button>
-  <div class="features">Simple • Organized • Student-friendly</div>
-</section>
+  <h1>Smart Task Planner</h1>
+  <p>A smart system that helps students decide what to do next</p>
 
-<!-- TEAM -->
-<section class="team">
-  <h2>Our Team</h2>
-  <div class="member"><b>Aakriti Gupta</b></div>
-  <div class="member"><b>Divyanshi Gupta</b></div>
-  <div class="member"><b>Dhatri Garg</b></div>
+  <button class="btn" onclick="openTasks()">Get Started</button>
+
+  <div class="features">
+    Simple • Organized • Student-friendly
+  </div>
+
+  <!-- LINKS -->
+  <div class="home-links">
+    <a href="know-more.html">Know More About Website</a><br>
+    <a href="about.html">About Us</a>
+
+  </div>
 </section>
 
 <!-- TASK PAGE -->
 <section class="task-page" id="tasks">
-  <h2>Your Tasks</h2>
+  <h2 id="dynamicHeading" class="fade-heading">Your Tasks</h2>
+
+
 
   <div class="ai-box" id="aiResult">
-    🤖 Add tasks to get AI recommendation
+    🤖 Add tasks to get smart recommendations
   </div>
 
   <div class="task-input">
@@ -70,24 +73,10 @@
   </div>
 
   <div class="task-list" id="taskList"></div>
+  <a href="#" class="back-link" onclick="goHome()">← Go to Home</a>
+
 </section>
 
-<section class="hero" id="home">
-  <h1>AI Student Productivity Agent</h1>
-  <p>An AI assistant that helps students decide what to do next</p>
-
-  <button class="btn" onclick="openTasks()">Get Started</button>
-
-  <div class="features">
-    Simple • Organized • Student-friendly
-  </div>
-
-  <!-- ABOUT US LINK -->
-  <a href="about.html" class="about-link">About Us</a>
-</section>
-
-
-<!-- JS (order matters) -->
 <script src="js/data.js"></script>
 <script src="js/ai.js"></script>
 <script src="js/app.js"></script>
