@@ -284,3 +284,22 @@ body {
 .back-link:hover {
   color: #4CAF50;
 }
+/* Back to Home link (Task Page only) */
+.back-link {
+  display: inline-block;
+  margin-top: 30px;
+  text-decoration: none;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Back to Home positioning under task list */
+.back-home-wrapper {
+  max-width: 900px;
+  margin: 40px auto 0;   /* space ABOVE the link */
+  text-align: left;      /* aligns with task list start */
+}
