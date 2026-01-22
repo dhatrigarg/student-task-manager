@@ -38,6 +38,11 @@
     🤖 Add tasks to get smart recommendations
   </div>
 
+  <div class="score-box" id="scoreBox">
+  📊 Productivity Score: <span id="scoreValue">50</span>/100
+</div>
+
+
   <div class="task-input">
     <div class="input-group">
       <label>Task</label>
@@ -71,11 +76,19 @@
       <button class="btn" onclick="addTask()">Add Task</button>
     </div>
   </div>
-
+<div class="urgency-guide">
+  <strong>Deadline Guide:</strong>
+  <div class="guide-item red">Red: Deadline within 1 day</div>
+  <div class="guide-item orange">Orange: Deadline in 2–3 days</div>
+  <div class="guide-item green">Green: Deadline after 3 days</div>
+</div>
   <div class="task-list" id="taskList"></div>
 
 <div class="back-home-wrapper">
   <a href="#" class="back-link" onclick="goHome()">← Back to Home</a>
+
+
+
 </div>
 
 

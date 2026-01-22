@@ -12,3 +12,14 @@ function isUrgent(deadline) {
   due.setHours(0,0,0,0);
   return (due - today) / 86400000 <= 1;
 }
+function getUrgency(deadline) {
+  if (!deadline) return "";
+
+  const today = new Date();
+  const due = new Date(deadline);
+  const diffDays = Math.ceil((due - today) / (1000 * 60 * 60 * 24));
+
+  if (diffDays <= 1) return "urgent";        // 🔴 red
+  if (diffDays <= 3) return "soon";          // 🟠 orange
+  return "safe";                             // 🟢 green
+}

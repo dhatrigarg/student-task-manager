@@ -7,6 +7,8 @@ function openTasks() {
 
   if (typeof renderTasks === "function") renderTasks();
   if (typeof showRecommendation === "function") showRecommendation();
+  calculateProductivityScore();
+
 }
 
 function addTask() {
@@ -25,6 +27,8 @@ function addTask() {
   saveTasks();
   renderTasks();
   showRecommendation();
+  calculateProductivityScore();
+
 }
 
 function deleteTask(i) {
@@ -32,6 +36,8 @@ function deleteTask(i) {
   saveTasks();
   renderTasks();
   showRecommendation();
+  calculateProductivityScore();
+
 }
 
 function toggleComplete(i) {
@@ -39,6 +45,8 @@ function toggleComplete(i) {
   saveTasks();
   renderTasks();
   showRecommendation();
+  calculateProductivityScore();
+
 }
 
 function renderTasks() {
@@ -46,7 +54,7 @@ function renderTasks() {
 
   taskData.forEach((t, i) => {
     const div = document.createElement("div");
-    div.className = `task ${t.type} ${t.completed ? "completed" : ""} ${isUrgent(t.deadline) ? "urgent" : ""}`;
+    div.className = `task ${t.type} ${t.completed ? "completed" : ""} ${getUrgency(t.deadline) }`;
 
     div.innerHTML = `
       <div>
@@ -85,4 +93,26 @@ changeHeading();
 function goHome() {
   document.getElementById("tasks").style.display = "none";
   document.getElementById("home").style.display = "flex"; // Show hero section
+}
+
+function calculateProductivityScore() {
+  if (taskData.length === 0) return 50;
+
+  let score = 50;
+
+  taskData.forEach(task => {
+    if (task.completed) {
+      score += 10;
+      if (task.type === "study") score += 5;
+    } else {
+      if (getUrgency(task.deadline) === "urgent") {
+        score -= 10;
+      }
+    }
+  });
+
+  // Clamp score between 0 and 100
+  score = Math.max(0, Math.min(100, score));
+
+  document.getElementById("scoreValue").innerText = score;
 }

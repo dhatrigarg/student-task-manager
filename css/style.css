@@ -303,3 +303,63 @@ body {
   margin: 40px auto 0;   /* space ABOVE the link */
   text-align: left;      /* aligns with task list start */
 }
+/* Deadline urgency colors */
+.task.urgent {
+  border-left-color: red;
+  background: #ffe5e5;
+}
+
+.task.soon {
+  border-left-color: orange;
+  background: #fff3e0;
+}
+
+.task.safe {
+  border-left-color: green;
+  background: #e8f5e9;
+}
+
+/* Deadline guide */
+.urgency-guide {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 15px 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-size: 0.95rem;
+}
+
+.urgency-guide strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.guide-item {
+  margin: 4px 0;
+}
+
+.guide-item.red {
+  color: red;
+}
+
+.guide-item.orange {
+  color: orange;
+}
+
+.guide-item.green {
+  color: green;
+}
+
+/* Productivity Score */
+.score-box {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  border-left: 6px solid #2196F3;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
