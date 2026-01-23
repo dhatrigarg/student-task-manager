@@ -1,4 +1,6 @@
-/* ========== GLOBAL RESET ========== */
+/*GLOBAL RESET*/
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,7 +13,10 @@ body {
   background: #eef2f3;
 }
 
-/* ========== BUTTONS ========== */
+
+/*BUTTONS*/
+
+
 .btn {
   background: #4CAF50;
   color: white;
@@ -28,7 +33,10 @@ body {
   transform: translateY(-2px);
 }
 
-/* ========== HERO / HOME PAGE ========== */
+
+/*HERO / HOME PAGE*/
+
+
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
@@ -58,20 +66,23 @@ body {
 
 .features {
   margin-top: 12px;
-  margin-bottom: 8px;   /* small controlled gap */
+  margin-bottom: 8px; 
   font-size: 1.05rem;
   opacity: 0.9;
 }
 
+
 /* Links container */
+
+
 .home-links {
   display: flex;
   flex-direction: column;
-  gap: 2px;             /* VERY IMPORTANT */
-  margin-top: 100px;     /* keeps it close to features */
+  gap: 2px;             
+  margin-top: 100px;    
 }
 
-/* Fix link colors & spacing */
+
 .home-links a,
 .home-links a:visited {
   color: white;
@@ -84,7 +95,9 @@ body {
 }
 
 
-/* ========== TASK PAGE ========== */
+/*TASK PAGE*/
+
+
 .task-page {
   display: none;
   min-height: 100vh;
@@ -97,9 +110,9 @@ body {
   font-size: 2rem;
 }
 
-/* ===============================
-   FOCUS PAGE STYLES
-   =============================== */
+
+/*FOCUS PAGE STYLES*/
+
 
 .focus-page {
   height: 100vh;
@@ -221,9 +234,8 @@ body {
 }
 
 
-/* ===============================
-   KNOW MORE PAGE STYLES
-   =============================== */
+/*KNOW MORE PAGE STYLES*/
+
 
 .know-more-page .info-container {
   max-width: 900px;
@@ -257,9 +269,9 @@ body {
   font-weight: bold;
 }
 
-/* ===============================
-   ABOUT PAGE STYLES
-   =============================== */
+
+/*ABOUT PAGE STYLES*/
+
 
 .about-page .about-container {
   max-width: 800px;
@@ -297,7 +309,10 @@ body {
   font-weight: bold;
 }
 
+
 /* AI Recommendation Box */
+
+
 .ai-box {
   max-width: 900px;
   margin: 0 auto 30px auto;
@@ -309,7 +324,10 @@ body {
   font-size: 1.1rem;
 }
 
+
 /* Task Input Form */
+
+
 .task-input {
   max-width: 900px;
   margin: 20px auto 30px auto;
@@ -347,7 +365,8 @@ body {
   border-color: #4CAF50;
 }
 
-/* ========== TASK LIST ========== */
+
+/*TASK LIST */
 .task-list {
   max-width: 900px;
   margin: auto;
@@ -384,7 +403,10 @@ body {
   background: #ffe5e5;
 }
 
+
 /* Delete Button */
+
+
 .delete-btn {
   background: red;
   color: white;
@@ -399,7 +421,10 @@ body {
   background: darkred;
 }
 
-/* ========== ABOUT PAGE ========== */
+
+/*ABOUT PAGE*/
+
+
 .about-container {
   min-height: 100vh;
   padding: 60px 20px;
@@ -448,7 +473,9 @@ body {
 }
 
 
-/* ========== RESPONSIVE ========== */
+/*RESPONSIVE*/
+
+
 @media (max-width: 900px) {
   .task-input {
     grid-template-columns: 1fr;
@@ -463,8 +490,6 @@ body {
 .focus-btn {
   margin-top: 20px;
 }
-
-
 
 .fade-heading {
   transition: opacity 1s ease-in-out, color 1s ease-in-out;
@@ -485,7 +510,7 @@ body {
 .back-link:hover {
   color: #4CAF50;
 }
-/* Back to Home link (Task Page only) */
+
 .back-link {
   display: inline-block;
   margin-top: 30px;
@@ -498,13 +523,15 @@ body {
   text-decoration: underline;
 }
 
-/* Back to Home positioning under task list */
 .back-home-wrapper {
   max-width: 900px;
-  margin: 40px auto 0;   /* space ABOVE the link */
-  text-align: left;      /* aligns with task list start */
+  margin: 40px auto 0;   
+  text-align: left;      
 }
+
 /* Deadline urgency colors */
+
+
 .task.urgent {
   border-left-color: red;
   background: #ffe5e5;
@@ -520,7 +547,10 @@ body {
   background: #e8f5e9;
 }
 
+
 /* Deadline guide */
+
+
 .urgency-guide {
   max-width: 900px;
   margin: 20px auto;
@@ -552,7 +582,10 @@ body {
   color: green;
 }
 
+
 /* Productivity Score */
+
+
 .score-box {
   max-width: 900px;
   margin: 20px auto;
