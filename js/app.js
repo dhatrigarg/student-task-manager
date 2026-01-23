@@ -111,36 +111,106 @@ function goHome() {
   document.getElementById("home").style.display = "flex"; // Show hero section
 }
 
+// function calculateProductivityScore() {
+//   // If no tasks exist
+//   if (taskData.length === 0) {
+//     document.getElementById("scoreValue").innerText = 0;
+//     return;
+//   }
+
+//   let totalPriority = 0;
+//   let completedPriority = 0;
+
+//   taskData.forEach(task => {
+//     const priority = calculatePriority(task);
+//     totalPriority += priority;
+
+//     if (task.completed) {
+//       completedPriority += priority;
+//     }
+//   });
+
+//   // Safety check (should not happen, but good practice)
+//   if (totalPriority === 0) {
+//     document.getElementById("scoreValue").innerText = 0;
+//     return;
+//   }
+
+//   const score = Math.round((completedPriority / totalPriority) * 100);
+//   document.getElementById("scoreValue").innerText = score;
+// }
+
+
+function openFocus() {
+  window.location.href = "focus.html";
+}
+
 function calculateProductivityScore() {
-  // If no tasks exist
   if (taskData.length === 0) {
-    document.getElementById("scoreValue").innerText = 0;
-    return;
+    updateProductivityCircle(0); // show 0% when no tasks
+    return 0;
   }
 
   let totalPriority = 0;
   let completedPriority = 0;
 
   taskData.forEach(task => {
-    const priority = calculatePriority(task);
+    const priority = calculatePriority(task); // Use your existing priority function
     totalPriority += priority;
-
-    if (task.completed) {
-      completedPriority += priority;
-    }
+    if (task.completed) completedPriority += priority;
   });
 
-  // Safety check (should not happen, but good practice)
-  if (totalPriority === 0) {
-    document.getElementById("scoreValue").innerText = 0;
-    return;
-  }
+  // Calculate score based on priority ratio
+  let score = Math.round((completedPriority / totalPriority) * 100);
 
-  const score = Math.round((completedPriority / totalPriority) * 100);
-  document.getElementById("scoreValue").innerText = score;
+  // Clamp score between 0 and 100
+  score = Math.max(0, Math.min(100, score));
+
+  // Update the circle
+  updateProductivityCircle(score);
+
+  // Optional: also update numeric value in case you still want it outside
+  const scoreValue = document.getElementById("scoreValue");
+  if (scoreValue) scoreValue.textContent = score;
+
+  return score;
+}
+
+// Function to update the red progress circle
+function updateProductivityCircle(score) {
+  score = Math.max(0, Math.min(100, score));
+
+  const circle = document.getElementById("progressCircle");
+  const text = document.getElementById("circlePercent");
+
+  const radius = 28;
+  const circumference = 2 * Math.PI * radius;
+
+  // Animate the stroke
+  circle.style.transition = "stroke-dashoffset 0.6s ease";
+  circle.style.strokeDasharray = circumference;
+  const offset = circumference - (score / 100) * circumference;
+  circle.style.strokeDashoffset = offset;
+
+  // Update percent text inside circle
+  text.textContent = `${score}%`;
 }
 
 
-function openFocus() {
-  window.location.href = "focus.html";
+
+function updateProductivityCircle(score) {
+  score = Math.max(0, Math.min(100, score));
+
+  const circle = document.getElementById("progressCircle");
+  const text = document.getElementById("circlePercent");
+
+  const radius = 28;
+  const circumference = 2 * Math.PI * radius;
+
+  const offset = circumference - (score / 100) * circumference;
+  circle.style.strokeDashoffset = offset;
+
+  text.textContent = `${score}%`;
 }
+
+

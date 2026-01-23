@@ -6,6 +6,7 @@
   <title>Smart Task Planner</title>
 
   <link rel="stylesheet" href="css/style.css">
+  
 </head>
 <body>
 
@@ -42,10 +43,18 @@
     🤖 Add tasks to get smart recommendations
   </div>
 
-  <div class="score-box" id="scoreBox">
-  📊 Productivity Score: <span id="scoreValue">50</span>/100
+  <div class="score-box">
+  <div class="productivity-circle">
+    <svg>
+      <circle cx="35" cy="35" r="28" id="progressCircle"></circle>
+    </svg>
+    <div id="circlePercent">0%</div>
+  </div>
+  <div class="score-text">
+    <div style="font-size:1.3rem; font-weight:bold;">Productivity Score</div>
+    <div style="font-size:1rem; opacity:0.8;">Keep track of your progress!</div>
+  </div>
 </div>
-
 
   <div class="task-input">
     <div class="input-group">
