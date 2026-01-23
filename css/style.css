@@ -97,6 +97,206 @@ body {
   font-size: 2rem;
 }
 
+/* ===============================
+   FOCUS PAGE STYLES
+   =============================== */
+
+.focus-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f")
+    no-repeat center center/cover;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.focus-page .bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 20, 40, 0.65);
+  backdrop-filter: blur(3px);
+}
+
+.focus-page .focus-card {
+  position: relative;
+  z-index: 2;
+  width: min(520px, 92%);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  padding: 28px;
+  color: white;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.focus-page h1 {
+  font-size: 32px;
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+}
+
+.focus-page .subtitle {
+  opacity: 0.85;
+  margin-bottom: 18px;
+}
+
+.focus-page .input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.focus-page input {
+  flex: 1;
+  padding: 12px 14px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.focus-page .timer-circle {
+  height: 200px;
+  width: 200px;
+  margin: 18px auto 14px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.13);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.focus-page .time-text {
+  font-size: 44px;
+  font-weight: bold;
+}
+
+.focus-page .status-text {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-top: 5px;
+}
+
+.focus-page .actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.focus-page button {
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.focus-page .primary {
+  background: #4CAF50;
+  color: white;
+}
+
+.focus-page .secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.focus-page .danger {
+  background: rgba(255, 60, 60, 0.35);
+  color: white;
+}
+
+.focus-page .back {
+  display: block;
+  text-align: center;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+
+
+/* ===============================
+   KNOW MORE PAGE STYLES
+   =============================== */
+
+.know-more-page .info-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+  line-height: 1.7;
+}
+
+.know-more-page .info-container h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.know-more-page .info-container h2 {
+  margin-top: 40px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.know-more-page .info-container p {
+  margin-bottom: 16px;
+  color: #555;
+  text-align: justify;
+}
+
+.know-more-page .back-link {
+  display: inline-block;
+  margin-top: 40px;
+  text-decoration: none;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* ===============================
+   ABOUT PAGE STYLES
+   =============================== */
+
+.about-page .about-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.about-page .about-container h1 {
+  margin-bottom: 30px;
+}
+
+.about-page .team-member {
+  background: #ffffff;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.about-page .team-member h3 {
+  margin-bottom: 8px;
+}
+
+.about-page .team-member p {
+  margin: 4px 0;
+  color: #555;
+}
+
+.about-page .back-link {
+  display: inline-block;
+  margin-top: 30px;
+  text-decoration: none;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
 /* AI Recommendation Box */
 .ai-box {
   max-width: 900px;
