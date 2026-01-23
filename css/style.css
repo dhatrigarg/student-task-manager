@@ -248,23 +248,24 @@ body {
 }
 
 
-
-
-
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
   .task-input {
     grid-template-columns: 1fr;
   }
 }
+.button-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 25px;
+}
 
-.fade-heading {
-  transition: opacity 1s ease-in-out;
-  opacity: 1;
+.focus-btn {
+  margin-top: 20px;
 }
-.fade-heading.fade-out {
-  opacity: 0;
-}
+
+
+
 .fade-heading {
   transition: opacity 1s ease-in-out, color 1s ease-in-out;
   opacity: 1;

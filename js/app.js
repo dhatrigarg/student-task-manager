@@ -116,3 +116,7 @@ function calculateProductivityScore() {
 
   document.getElementById("scoreValue").innerText = score;
 }
+
+function openFocus() {
+  window.location.href = "focus.html";
+}
