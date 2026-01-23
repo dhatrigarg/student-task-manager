@@ -48,28 +48,44 @@ function toggleComplete(i) {
   calculateProductivityScore();
 
 }
-
 function renderTasks() {
   taskList.innerHTML = "";
 
-  taskData.forEach((t, i) => {
+  // Create a copy of taskData with original index
+  const sortedTasks = taskData
+    .map((task, index) => ({ task, index }))
+    .sort((a, b) => calculatePriority(b.task) - calculatePriority(a.task));
+
+  sortedTasks.forEach((item, displayIndex) => {
+    const t = item.task;
+    const originalIndex = item.index;
+
     const div = document.createElement("div");
-    div.className = `task ${t.type} ${t.completed ? "completed" : ""} ${getUrgency(t.deadline) }`;
+    div.className = `task ${t.type} ${t.completed ? "completed" : ""} ${getUrgency(t.deadline)}`;
 
     div.innerHTML = `
       <div>
-        <input type="checkbox" ${t.completed ? "checked" : ""} onclick="toggleComplete(${i})">
-        <b>${t.text}</b><br>
-        <small>Type: ${t.type} | Deadline: ${t.deadline || "none"} | Effort: ${t.effort}</small>
+        <input type="checkbox" ${t.completed ? "checked" : ""} 
+          onclick="toggleComplete(${originalIndex})">
+
+        <b>${displayIndex + 1}. ${t.text}</b><br>
+
+        <small>
+          Type: ${t.type} | 
+          Deadline: ${t.deadline || "none"} | 
+          Effort: ${t.effort}
+        </small>
       </div>
-      <button class="delete-btn" onclick="deleteTask(${i})">Delete</button>
+
+      <button class="delete-btn" onclick="deleteTask(${originalIndex})">
+        Delete
+      </button>
     `;
 
     taskList.appendChild(div);
   });
 }
 
-// Dynamic task heading
 const motivationalLines = [
   "Stay on track, every day.",
   "Decide less. Do more.",
