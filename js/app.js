@@ -96,26 +96,34 @@ function goHome() {
 }
 
 function calculateProductivityScore() {
-  if (taskData.length === 0) return 50;
+  // If no tasks exist
+  if (taskData.length === 0) {
+    document.getElementById("scoreValue").innerText = 0;
+    return;
+  }
 
-  let score = 50;
+  let totalPriority = 0;
+  let completedPriority = 0;
 
   taskData.forEach(task => {
+    const priority = calculatePriority(task);
+    totalPriority += priority;
+
     if (task.completed) {
-      score += 10;
-      if (task.type === "study") score += 5;
-    } else {
-      if (getUrgency(task.deadline) === "urgent") {
-        score -= 10;
-      }
+      completedPriority += priority;
     }
   });
 
-  // Clamp score between 0 and 100
-  score = Math.max(0, Math.min(100, score));
+  // Safety check (should not happen, but good practice)
+  if (totalPriority === 0) {
+    document.getElementById("scoreValue").innerText = 0;
+    return;
+  }
 
+  const score = Math.round((completedPriority / totalPriority) * 100);
   document.getElementById("scoreValue").innerText = score;
 }
+
 
 function openFocus() {
   window.location.href = "focus.html";
