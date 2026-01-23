@@ -129,7 +129,7 @@ body {
   position: absolute;
   inset: 0;
   background: rgba(10, 20, 40, 0.65);
-  backdrop-filter: blur(3px);
+  
 }
 
 .focus-page .focus-card {
@@ -269,7 +269,6 @@ body {
   font-weight: bold;
 }
 
-
 /*ABOUT PAGE STYLES*/
 
 
@@ -308,7 +307,6 @@ body {
   color: #4CAF50;
   font-weight: bold;
 }
-
 
 /* AI Recommendation Box */
 
@@ -398,10 +396,6 @@ body {
   text-decoration: line-through;
 }
 
-.task.urgent {
-  border-left-color: red;
-  background: #ffe5e5;
-}
 
 
 /* Delete Button */
@@ -421,56 +415,6 @@ body {
   background: darkred;
 }
 
-
-/*ABOUT PAGE*/
-
-
-.about-container {
-  min-height: 100vh;
-  padding: 60px 20px;
-  text-align: center;
-  background: #eef2f3;
-}
-
-.about-container h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.about-container p {
-  margin-bottom: 40px;
-  font-size: 1.1rem;
-}
-
-.about-grid {
-  max-width: 600px;
-  margin: auto;
-}
-
-.member-card {
-  background: white;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-}
-
-.member-card h3 {
-  margin-bottom: 6px;
-}
-
-.member-card p {
-  font-size: 0.95rem;
-  margin-bottom: 6px;
-}
-
-.back-link {
-  display: inline-block;
-  margin-top: 40px;
-  font-size: 1.1rem;
-  text-decoration: underline;
-  color: #333;
-}
 
 
 /*RESPONSIVE*/
@@ -499,13 +443,6 @@ body {
   opacity: 0;
 }
 
-.back-link {
-  display: inline-block;
-  margin-top: 40px;
-  font-size: 1.1rem;
-  text-decoration: underline;
-  color: #333;
-}
 
 .back-link:hover {
   color: #4CAF50;
