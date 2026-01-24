@@ -1,20 +1,37 @@
+// function calculatePriority(task) {
+//   let score = task.type === "study" ? 50 : 10;
+
+//   if (task.deadline) {
+//     const today = new Date();
+//     const due = new Date(task.deadline);
+//     today.setHours(0,0,0,0);
+//     due.setHours(0,0,0,0);
+//     const diff = (due - today) / 86400000;
+//     score += diff <= 1 ? 30 : 10;
+//   }
+
+//   score += task.effort === "low" ? 20 :
+//            task.effort === "medium" ? 10 : 5;
+
+//   return score;
+// }
+
 function calculatePriority(task) {
-  let score = task.type === "study" ? 50 : 10;
+  let score = task.type === "study" ? 50 : 20;
 
-  if (task.deadline) {
-    const today = new Date();
-    const due = new Date(task.deadline);
-    today.setHours(0,0,0,0);
-    due.setHours(0,0,0,0);
-    const diff = (due - today) / 86400000;
-    score += diff <= 1 ? 30 : 10;
-  }
+  const urgency = getUrgency(task.deadline);
 
-  score += task.effort === "low" ? 20 :
-           task.effort === "medium" ? 10 : 5;
+  if (urgency === "urgent") score += 40;
+  else if (urgency === "soon") score += 25;
+  else if (urgency === "safe") score += 10;
+
+  if (task.effort === "low") score += 20;
+  else if (task.effort === "medium") score += 10;
+  else score += 5;
 
   return score;
 }
+
 
 function showRecommendation() {
   const box = document.getElementById("aiResult");

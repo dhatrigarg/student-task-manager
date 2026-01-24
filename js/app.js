@@ -111,34 +111,6 @@ function goHome() {
   document.getElementById("home").style.display = "flex"; // Show hero section
 }
 
-// function calculateProductivityScore() {
-//   // If no tasks exist
-//   if (taskData.length === 0) {
-//     document.getElementById("scoreValue").innerText = 0;
-//     return;
-//   }
-
-//   let totalPriority = 0;
-//   let completedPriority = 0;
-
-//   taskData.forEach(task => {
-//     const priority = calculatePriority(task);
-//     totalPriority += priority;
-
-//     if (task.completed) {
-//       completedPriority += priority;
-//     }
-//   });
-
-//   // Safety check (should not happen, but good practice)
-//   if (totalPriority === 0) {
-//     document.getElementById("scoreValue").innerText = 0;
-//     return;
-//   }
-
-//   const score = Math.round((completedPriority / totalPriority) * 100);
-//   document.getElementById("scoreValue").innerText = score;
-// }
 
 
 function openFocus() {
