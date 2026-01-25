@@ -143,10 +143,12 @@ function calculateProductivityScore() {
 
   
   updateProductivityCircle(score);
+  
 
   
   const scoreValue = document.getElementById("scoreValue");
   if (scoreValue) scoreValue.textContent = score;
+  updateProductivityMessage(score);
 
   return score;
 }
@@ -204,5 +206,26 @@ function toggleTheme() {
   } else {
     localStorage.setItem("theme", "light");
     if (toggle) toggle.textContent = "🌙";
+  }
+}
+
+function updateProductivityMessage(score) {
+  const msg = document.getElementById("productivityMessage");
+  if (!msg) return;
+
+  if (score === 0) {
+    msg.textContent = "Let’s get started 🚀";
+  } else if (score <= 10) {
+    msg.textContent = "Good start! Keep going 👍";
+  } else if (score <= 30) {
+    msg.textContent = "Nice progress, stay focused 💡";
+  } else if (score <= 50) {
+    msg.textContent = "You’re building momentum 🔥";
+  } else if (score <= 70) {
+    msg.textContent = "Great work! Don’t slow down 💪";
+  } else if (score <= 90) {
+    msg.textContent = "Almost there! Push a little more 🚀";
+  } else {
+    msg.textContent = "Excellent! You’re on top of your goals 🎯";
   }
 }

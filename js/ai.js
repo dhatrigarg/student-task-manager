@@ -16,34 +16,44 @@ function calculatePriority(task) {
   return score;
 }
 
+
 function showRecommendation() {
   const box = document.getElementById("aiResult");
-  const active = taskData.filter(t => !t.completed);
 
-  if (active.length === 0) {
-    box.innerHTML = "🤖 All tasks completed. Great job!";
+  // CASE 1: No tasks added at all
+  if (taskData.length === 0) {
+    box.innerHTML = "🌱 Great, let’s start! Add your first task to begin.";
     return;
   }
 
-  let best = active[0];
-  let bestScore = calculatePriority(best);
+  // Active (not completed) tasks
+  const activeTasks = taskData.filter(t => !t.completed);
 
-  for (let t of active) {
-    const s = calculatePriority(t);
-    if (s > bestScore) {
-      bestScore = s;
-      best = t;
+  // CASE 2: All tasks completed
+  if (activeTasks.length === 0) {
+    box.innerHTML = "🎉 All tasks completed. Great job!";
+    return;
+  }
+
+  // CASE 3: Recommend highest priority task
+  let bestTask = activeTasks[0];
+  let bestScore = calculatePriority(bestTask);
+
+  for (let task of activeTasks) {
+    const score = calculatePriority(task);
+    if (score > bestScore) {
+      bestScore = score;
+      bestTask = task;
     }
   }
 
-  let reasons = [];
-  if (best.type === "study") reasons.push("It is study-related");
-  if (best.deadline) reasons.push("Deadline is close");
-  reasons.push(`Effort level is ${best.effort}`);
-
   box.innerHTML = `
-    <b>🤖 Recommended Task:</b> "${best.text}"<br><br>
+    <b>🤖 Recommended Task:</b> "${bestTask.text}"<br><br>
     <b>Why?</b>
-    <ul>${reasons.map(r => `<li>${r}</li>`).join("")}</ul>
+    <ul>
+      <li>Task type: ${bestTask.type}</li>
+      <li>Deadline considered</li>
+      <li>Effort level: ${bestTask.effort}</li>
+    </ul>
   `;
 }

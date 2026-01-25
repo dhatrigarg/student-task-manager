@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<!-- HOME -->
+
 <section class="hero" id="home">
   <h1>Smart Task Planner</h1>
   <p>A smart system that helps students decide what to do next</p>
@@ -28,7 +28,7 @@
     Simple • Organized • Student-friendly
   </div>
 
-  <!-- LINKS -->
+  
   <div class="home-links">
     <a href="know-more.html">Know More About Website</a><br>
     <a href="about.html">About Us</a>
@@ -36,7 +36,7 @@
   </div>
 </section>
 
-<!-- TASK PAGE -->
+
 <section class="task-page" id="tasks">
   <h2 id="dynamicHeading" class="fade-heading">Your Tasks</h2>
 
@@ -54,9 +54,15 @@
     <div id="circlePercent">0%</div>
   </div>
   <div class="score-text">
-    <div style="font-size:1.3rem; font-weight:bold;">Productivity Score</div>
-    <div style="font-size:1rem; opacity:0.8;">Keep track of your progress!</div>
+  <div style="font-size:1.3rem; font-weight:bold;">Productivity Score</div>
+  <div 
+    id="productivityMessage" 
+    style="font-size:1rem; opacity:0.8;"
+  >
+    Let’s get started 🚀
   </div>
+</div>
+
 </div>
 
   <div class="task-input">
@@ -97,7 +103,7 @@
 
   <div class="urgency-guide">
   <strong>Deadline Guide:</strong>
-  <div class="guide-item red">Red: Deadline within 1 day</div>
+  <div class="guide-item red">Red: Deadline within 1 day or overdue</div>
   <div class="guide-item orange">Orange: Deadline in 2–3 days</div>
   <div class="guide-item green">Green: Deadline after 3 days</div>
 </div>
