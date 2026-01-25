@@ -1157,3 +1157,9 @@ body.dark.know-more-page .info-container h2{
 body.dark.know-more-page .info-container p{
   color:rgb(239, 230, 230);
 }
+
+.score-message {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
