@@ -241,6 +241,55 @@ body {
 }
 
 
+@media (max-width: 768px) {
+
+  body {
+    padding: 12px;
+  }
+
+  .focus-container {
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  .focus-box {
+    width: 100%;
+  }
+
+  .focus-header {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .focus-task {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .focus-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .focus-controls button {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+.focus-container {
+  max-width: 600px;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .focus-container {
+    text-align: center;
+  }
+}
+
+
 /*KNOW MORE PAGE STYLES*/
 
 
