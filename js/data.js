@@ -19,7 +19,7 @@ function getUrgency(deadline) {
   const due = new Date(deadline);
   const diffDays = Math.ceil((due - today) / (1000 * 60 * 60 * 24));
 
-  if (diffDays <= 1) return "urgent";        // 🔴 red
-  if (diffDays <= 3) return "soon";          // 🟠 orange
-  return "safe";                             // 🟢 green
+  if (diffDays <= 1) return "urgent";        
+  if (diffDays <= 3) return "soon";          
+  return "safe";                             
 }

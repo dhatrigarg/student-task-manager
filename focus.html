@@ -9,6 +9,7 @@
 </head>
 <body class="focus-page">
   <div class="bg-overlay"></div>
+  
 
   <div class="focus-card">
     <h1>Focus Timer</h1>
@@ -32,11 +33,19 @@
     <a class="back" href="index.html">← Back to Home</a>
   </div>
 
-  <!-- Sound -->
+  
   <audio id="sound" src="alarm.mp3"></audio>
 <script src="js/focus.js"></script>
 
-  
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle("dark");
+
+    const toggle = document.querySelector(".theme-toggle");
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+  }
+</script>
+
 </body>
 </html>
 

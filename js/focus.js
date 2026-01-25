@@ -24,7 +24,7 @@ function updateDisplay() {
 }
 
 function startInterval() {
-  // prevent multiple intervals
+  
   if (interval) return;
 
   interval = setInterval(() => {
@@ -63,7 +63,7 @@ startBtn.addEventListener("click", () => {
   resetBtn.disabled = false;
   pauseBtn.textContent = "Pause";
 
-  // clear old interval if any
+  
   if (interval) {
     clearInterval(interval);
     interval = null;
@@ -76,20 +76,20 @@ pauseBtn.addEventListener("click", () => {
   if (!interval && totalSeconds === 0) return;
 
   if (!isPaused) {
-    // PAUSE
+    
     isPaused = true;
     statusEl.textContent = "⏸ Paused";
     pauseBtn.textContent = "Resume";
 
     clearInterval(interval);
-    interval = null; // very important
+    interval = null; 
   } else {
-    // RESUME
+    
     isPaused = false;
     statusEl.textContent = "🔥 Focusing...";
     pauseBtn.textContent = "Pause";
 
-    startInterval(); // start again
+    startInterval();
   }
 });
 
@@ -109,6 +109,12 @@ resetBtn.addEventListener("click", () => {
   pauseBtn.disabled = true;
   resetBtn.disabled = true;
 });
+const focusedTask = JSON.parse(localStorage.getItem("focusedTask"));
+
+if (focusedTask) {
+  console.log("Focused Task:", focusedTask);
+  
+}
 
 
 

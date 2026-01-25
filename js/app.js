@@ -28,9 +28,7 @@ function addTask() {
   renderTasks();
   showRecommendation();
   calculateProductivityScore();
-
 }
-
 function deleteTask(i) {
   taskData.splice(i, 1);
   saveTasks();
@@ -51,7 +49,7 @@ function toggleComplete(i) {
 function renderTasks() {
   taskList.innerHTML = "";
 
-  // Create a copy of taskData with original index
+  
   const sortedTasks = taskData
     .map((task, index) => ({ task, index }))
     .sort((a, b) => calculatePriority(b.task) - calculatePriority(a.task));
@@ -76,10 +74,15 @@ function renderTasks() {
           Effort: ${t.effort}
         </small>
       </div>
+     <div class="task-actions">
+        <button class="focus-btn" onclick="openFocus(${originalIndex})">
+          Focus
+        </button>
 
-      <button class="delete-btn" onclick="deleteTask(${originalIndex})">
-        Delete
-      </button>
+        <button class="delete-btn" onclick="deleteTask(${originalIndex})">
+          Delete
+        </button>
+      </div>
     `;
 
     taskList.appendChild(div);
@@ -96,49 +99,21 @@ const motivationalLines = [
 const dynamicHeading = document.getElementById("dynamicHeading");
 
 function changeHeading() {
+  if (!dynamicHeading) return; 
+
   const randomIndex = Math.floor(Math.random() * motivationalLines.length);
   dynamicHeading.textContent = motivationalLines[randomIndex];
 }
-
-// Change heading every 5 seconds
-setInterval(changeHeading, 5000);
-
-// Initialize first random line immediately
-changeHeading();
+if (dynamicHeading) {
+  setInterval(changeHeading, 5000);
+  changeHeading();
+}
 
 function goHome() {
   document.getElementById("tasks").style.display = "none";
-  document.getElementById("home").style.display = "flex"; // Show hero section
+  document.getElementById("home").style.display = "flex"; 
 }
 
-// function calculateProductivityScore() {
-//   // If no tasks exist
-//   if (taskData.length === 0) {
-//     document.getElementById("scoreValue").innerText = 0;
-//     return;
-//   }
-
-//   let totalPriority = 0;
-//   let completedPriority = 0;
-
-//   taskData.forEach(task => {
-//     const priority = calculatePriority(task);
-//     totalPriority += priority;
-
-//     if (task.completed) {
-//       completedPriority += priority;
-//     }
-//   });
-
-//   // Safety check (should not happen, but good practice)
-//   if (totalPriority === 0) {
-//     document.getElementById("scoreValue").innerText = 0;
-//     return;
-//   }
-
-//   const score = Math.round((completedPriority / totalPriority) * 100);
-//   document.getElementById("scoreValue").innerText = score;
-// }
 
 
 function openFocus() {
@@ -147,7 +122,7 @@ function openFocus() {
 
 function calculateProductivityScore() {
   if (taskData.length === 0) {
-    updateProductivityCircle(0); // show 0% when no tasks
+    updateProductivityCircle(0); 
     return 0;
   }
 
@@ -155,46 +130,27 @@ function calculateProductivityScore() {
   let completedPriority = 0;
 
   taskData.forEach(task => {
-    const priority = calculatePriority(task); // Use your existing priority function
+    const priority = calculatePriority(task); 
     totalPriority += priority;
     if (task.completed) completedPriority += priority;
   });
 
-  // Calculate score based on priority ratio
+  
   let score = Math.round((completedPriority / totalPriority) * 100);
 
-  // Clamp score between 0 and 100
+  
   score = Math.max(0, Math.min(100, score));
 
-  // Update the circle
+  
   updateProductivityCircle(score);
 
-  // Optional: also update numeric value in case you still want it outside
+  
   const scoreValue = document.getElementById("scoreValue");
   if (scoreValue) scoreValue.textContent = score;
 
   return score;
 }
 
-// Function to update the red progress circle
-function updateProductivityCircle(score) {
-  score = Math.max(0, Math.min(100, score));
-
-  const circle = document.getElementById("progressCircle");
-  const text = document.getElementById("circlePercent");
-
-  const radius = 28;
-  const circumference = 2 * Math.PI * radius;
-
-  // Animate the stroke
-  circle.style.transition = "stroke-dashoffset 0.6s ease";
-  circle.style.strokeDasharray = circumference;
-  const offset = circumference - (score / 100) * circumference;
-  circle.style.strokeDashoffset = offset;
-
-  // Update percent text inside circle
-  text.textContent = `${score}%`;
-}
 
 
 
@@ -213,4 +169,40 @@ function updateProductivityCircle(score) {
   text.textContent = `${score}%`;
 }
 
+function openFocus(i) {
+  
+  localStorage.setItem("focusedTask", JSON.stringify(taskData[i]));
 
+ 
+  window.location.href = "focus.html";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
+
+  
+  const toggle = document.querySelector(".theme-toggle");
+  if (toggle) {
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+  }
+});
+
+
+function toggleTheme() {
+  const toggle = document.querySelector(".theme-toggle");
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+    if (toggle) toggle.textContent = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    if (toggle) toggle.textContent = "🌙";
+  }
+}
