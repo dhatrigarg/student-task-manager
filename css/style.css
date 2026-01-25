@@ -241,43 +241,7 @@ body {
 }
 
 
-@media (max-width: 768px) {
 
-  body {
-    padding: 12px;
-  }
-
-  .focus-container {
-    width: 100%;
-    padding: 16px;
-    box-sizing: border-box;
-  }
-
-  .focus-box {
-    width: 100%;
-  }
-
-  .focus-header {
-    font-size: 1.4rem;
-    text-align: center;
-  }
-
-  .focus-task {
-    font-size: 1.1rem;
-    text-align: center;
-  }
-
-  .focus-controls {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .focus-controls button {
-    width: 100%;
-    font-size: 1rem;
-  }
-}
 
 .focus-container {
   max-width: 600px;
@@ -286,6 +250,85 @@ body {
 @media (max-width: 768px) {
   .focus-container {
     text-align: center;
+  }
+}
+
+/* Focus button on task page*/
+
+
+.focus-btn {
+  background-color:#eb41bb;
+  color: #ffffff;
+  border: 1px solid #eb41bb;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-right: 8px;
+  transition: all 0.2s ease;
+}
+
+
+.focus-btn:hover {
+  background-color: #9d1b95;
+  border-color: #666;
+  transform: translateY(-1px);
+}
+
+.focus-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+
+  .focus-page {
+    padding: 16px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .focus-page .focus-card {
+    width: 100%;
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .focus-page h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .focus-page .subtitle {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .focus-page .input-row {
+    flex-direction: column;
+  }
+
+  .focus-page input {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .focus-page .timer-circle {
+    width: 160px;
+    height: 160px;
+  }
+
+  .focus-page .time-text {
+    font-size: 36px;
+  }
+
+  .focus-page .actions {
+    flex-direction: column;
+  }
+
+  .focus-page button {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
   }
 }
 
@@ -476,31 +519,6 @@ body {
 }
 
 
-/* Focus button on task page*/
-
-
-.focus-btn {
-  background-color:#eb41bb;
-  color: #ffffff;
-  border: 1px solid #eb41bb;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 15px;
-  margin-right: 8px;
-  transition: all 0.2s ease;
-}
-
-
-.focus-btn:hover {
-  background-color: #9d1b95;
-  border-color: #666;
-  transform: translateY(-1px);
-}
-
-.focus-btn:active {
-  transform: translateY(0);
-}
 
 
 /*RESPONSIVE*/
